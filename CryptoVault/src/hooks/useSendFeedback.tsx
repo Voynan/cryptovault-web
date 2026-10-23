@@ -13,8 +13,7 @@ export function useSendFeedback() {
   const sendFeedback = async (
     feedbackType: string,
     title: string,
-    description: string,
-    screenshot?: File | null
+    description: string
   ) => {
     if (!isAuthenticated) {
       // Maybe is unnecessary because protectedRoute guard is handle with that.
@@ -26,8 +25,7 @@ export function useSendFeedback() {
       const res = await sendFeedbackService(
         feedbackType,
         title,
-        description,
-        screenshot
+        description
       );
       if (res.status == 201) {
         newMessage({
