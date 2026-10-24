@@ -11,4 +11,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Same origin as production, where Vercel forwards these paths to the API.
+  server: {
+    proxy: {
+      "/api": "http://127.0.0.1:8000",
+      "/admin": "http://127.0.0.1:8000",
+      "/system": "http://127.0.0.1:8000",
+    },
+  },
 });

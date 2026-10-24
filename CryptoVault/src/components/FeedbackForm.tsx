@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSet,
@@ -48,8 +47,6 @@ const FeedbackForm = () => {
     const type = formData.get("type") as string;
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;
-    const fileRaw = formData.get("screenshot");
-    const file = fileRaw instanceof File && fileRaw.size > 0 ? fileRaw : null;
 
     if (!type || !title || !description) {
       newMessage({
@@ -61,7 +58,7 @@ const FeedbackForm = () => {
     }
 
     const form = e.currentTarget;
-    const success = await sendFeedback(type, title, description, file);
+    const success = await sendFeedback(type, title, description);
 
     if (success) {
       form.reset();
@@ -122,13 +119,6 @@ const FeedbackForm = () => {
                     required
                     name="description"
                   />
-                </Field>
-                <Field>
-                  <FieldLabel htmlFor="file">Screenshot</FieldLabel>
-                  <FieldDescription>
-                    Insert the screenshot of the problem here
-                  </FieldDescription>
-                  <Input id="file" type="file" name="screenshot" />
                 </Field>
               </FieldGroup>
             </FieldSet>

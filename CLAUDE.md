@@ -53,12 +53,10 @@ No Redux. The `src/store/` directory is empty.
 ### Environment Variables
 
 ```
-VITE_API_BASE_URL          # Backend API base URL
-VITE_STRIPE_PAYMENT_LINK   # Stripe checkout link
+VITE_API_BASE_URL          # "/api/" — same origin; Vercel proxies /api, /admin, /system to Cloud Run
 VITE_GITHUB_URL
-VITE_ROSETTA_URL
-VITE_ROSETTA_LINKEDIN_URL
-VITE_CRYPTOVAULT_DOCS_URL  # Postman API docs
+VITE_VOYNAN_URL
+VITE_VOYNAN_LINKEDIN_URL
 ```
 
 ### TypeScript

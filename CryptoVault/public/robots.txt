@@ -10,4 +10,4 @@ Disallow: /verify-email/
 Disallow: /reset-password/
 
 # Sitemap location
-Sitemap: https://cryptovault.rosetta-solutions.com/sitemap.xml
+Sitemap: https://cryptovault.voynan.com/sitemap.xml

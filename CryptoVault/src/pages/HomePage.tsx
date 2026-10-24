@@ -7,11 +7,11 @@ import {
   Zap, 
   Code, 
   CheckCircle2,
-  FileText,
   Wallet,
   ArrowRight,
   Github,
-  BookOpen,
+  Linkedin,
+  FileText,
   Upload,
   Search
 } from 'lucide-react';
@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
 import { PARTIAL_PATHS } from '@/routes/paths';
 import { TermsOfUseDialog } from '@/components/TermsOfUseDialog';
 import { ParticleNetwork } from '@/components/ParticleNetwork';
-import LogoRoseta from '@/assets/LogoRosettaWithNameV3.svg';
+import { VoynanWordmark } from '@/components/VoynanWordmark';
 
 
 const fadeInUp = {
@@ -40,8 +40,9 @@ const staggerContainer = {
 };
 
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
-const rosettaUrl = import.meta.env.VITE_ROSETTA_URL;
-const docsUrl = import.meta.env.VITE_CRYPTOVAULT_DOCS_URL;
+const voynanUrl = import.meta.env.VITE_VOYNAN_URL;
+const linkedinUrl = import.meta.env.VITE_VOYNAN_LINKEDIN_URL;
+const apiSourceUrl = 'https://github.com/Voynan/cryptovault-api';
 
 export default function CryptoVaultHomePage() {
   return (
@@ -81,14 +82,6 @@ export default function CryptoVaultHomePage() {
               className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-sm xl:text-base"
             >
               Blockchain
-            </a>
-            <a 
-              href={docsUrl} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-sm xl:text-base"
-            >
-              Docs
             </a>
           </div>
 
@@ -178,12 +171,6 @@ export default function CryptoVaultHomePage() {
                 <Upload className="w-5 h-5" aria-hidden="true" />
                 Upload Your First File
               </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-gray-200 text-gray-700 hover:bg-gray-50 text-lg px-8 shadow-sm hover:border-gray-300">
-              <a href={docsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5" aria-hidden="true" />
-                View API Documentation
-              </a>
             </Button>
           </motion.div>
         </motion.div>
@@ -538,31 +525,31 @@ export default function CryptoVaultHomePage() {
                 Zero-knowledge encrypted storage with blockchain verification.
               </p>
               <div>
-                <Link to={rosettaUrl}>
-                  <img src={LogoRoseta} alt="Logo Rosetta" className='h-6 mb-4' /> 
-                </Link>
+                <a href={voynanUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+                  <VoynanWordmark variant="onLight" className="h-8 mb-4" />
+                </a>
               </div>
-                <p className="text-gray-500 text-sm">Developed by Rosetta.</p>
+                <p className="text-gray-500 text-sm">Developed by Voynan.</p>
             </div>
             <div>
               <h3 className="text-gray-900 font-bold mb-4">More Informations</h3>
               <ul className="space-y-2 text-gray-500 text-sm">
-                <li><a href={rosettaUrl} target='_blank' className="hover:text-blue-600 transition-colors">Contact</a></li>
-                <li><a href={docsUrl} target='_blank' className="hover:text-blue-600 transition-colors">API Documentation</a></li>
+                <li><a href={linkedinUrl} target='_blank' rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">Contact</a></li>
+                <li><a href={apiSourceUrl} target='_blank' rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">API source</a></li>
                 <li><TermsOfUseDialog className='h-5 hover:text-blue-600 hover:no-underline transition-colors text-gray-500 p-0 font-normal'/></li>    
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © 2026 CryptoVault & Rosetta. All rights reserved.
+              © 2026 CryptoVault & Voynan. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <a href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" className="text-gray-400 hover:text-gray-900 transition-colors">
                 <Github className="w-5 h-5" aria-hidden="true" />
               </a>
-              <a href={docsUrl} target="_blank" rel="noopener noreferrer" aria-label="API Documentation" className="text-gray-400 hover:text-gray-900 transition-colors">
-                <FileText className="w-5 h-5" aria-hidden="true" />
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="Voynan on LinkedIn" className="text-gray-400 hover:text-gray-900 transition-colors">
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
